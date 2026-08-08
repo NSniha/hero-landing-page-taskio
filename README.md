@@ -8,7 +8,7 @@
 
 A responsive hero section for **Taskio**, a fictional AI-powered productivity and team collaboration SaaS. Built with vanilla HTML, CSS, and JavaScript — no frameworks, no build step.
 
-![Taskio hero section preview](assets/preview.png)
+![Taskio hero section preview](/assets/preview.png)
 
 ## Overview
 
@@ -41,7 +41,10 @@ Only the hero section is implemented. The **Features**, **Integration**, and **P
 
 ```
 hero-landing-page-taskio/
-├── assets/          # logo, favicon, dashboard illustration
+├── assets/
+│   └──logo
+│   └── favicon
+│   └── dashboard illustration
 ├── css/
 │   └── style.css
 ├── js/
