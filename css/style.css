@@ -1,0 +1,1288 @@
+:root {
+    --font-primary: "Manrope", Arial, sans-serif;
+    --color-bg: #f5f5f4;
+    --color-heading: #09090b;
+    --color-text: #555557;
+    --color-nav: #6c6c6f;
+    --color-dark: #3d3d3d;
+    --color-dark-hover: #303030;
+    --color-white: #ffffff;
+    --color-border: #c5d5de;
+    --color-rating: #ff6269;
+    --container-width: 1460px;
+    --container-gap: 24px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ===================================
+   Reset
+=================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    color: var(--color-heading);
+    background: var(--color-bg);
+    font-family: var(--font-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1,
+p,
+figure {
+    margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    padding: 0;
+    border: 0;
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid rgba(59, 86, 104, 0.32);
+    outline-offset: 4px;
+}
+
+.container {
+    width: min(calc(100% - (var(--container-gap) * 2)), var(--container-width));
+    margin-inline: auto;
+}
+
+/* ===================================
+   Page
+=================================== */
+
+.page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f8f8f7 0%, #f3f3f2 100%);
+}
+
+/* ===================================
+   Header
+=================================== */
+
+.site-header {
+    position: absolute;
+    z-index: 100;
+    top: 30px;
+    left: 0;
+    width: 100%;
+}
+
+.navbar {
+    position: relative;
+    min-height: 78px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 0 25px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 17px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(28, 32, 36, 0.022);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.brand {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+}
+
+.brand img {
+    width: 116px;
+    height: auto;
+}
+
+/* ===================================
+   Desktop Navigation
+=================================== */
+
+.nav-menu {
+    grid-column: 2 / 4;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 63px;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-flex;
+    padding: 12px 0;
+    color: var(--color-nav);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.015em;
+    transition: color 220ms ease;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    right: 100%;
+    bottom: 4px;
+    left: 0;
+    height: 1px;
+    background: #555557;
+    transition: right 250ms var(--ease);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: #222224;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+    right: 0;
+}
+
+/* ===================================
+   Header CTA
+=================================== */
+
+.nav-button {
+    position: relative;
+    justify-self: end;
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 18px;
+    border-radius: 14px;
+    color: var(--color-white);
+    background: var(--color-dark);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    transition:
+        background-color 230ms ease,
+        transform 230ms var(--ease),
+        box-shadow 230ms ease;
+}
+
+.nav-button::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -45%;
+    width: 32%;
+    height: 300%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.18),
+        transparent
+    );
+    transform: rotate(22deg);
+    transition: left 600ms var(--ease);
+}
+
+.nav-button span {
+    position: relative;
+    z-index: 2;
+}
+
+.nav-button:hover {
+    background: var(--color-dark-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 9px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:hover::before {
+    left: 115%;
+}
+
+.nav-button:active {
+    transform: translateY(0) scale(0.985);
+}
+
+/* ===================================
+   Menu Button
+=================================== */
+
+.menu-button {
+    display: none;
+    position: relative;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    color: var(--color-white);
+    background: var(--color-dark);
+    cursor: pointer;
+}
+
+.menu-icon {
+    position: absolute;
+    font-size: 25px;
+    transition:
+        opacity 220ms ease,
+        transform 220ms var(--ease);
+}
+
+.menu-icon-close {
+    opacity: 0;
+    transform: rotate(-45deg) scale(0.8);
+}
+
+.menu-button[aria-expanded="true"] .menu-icon-open {
+    opacity: 0;
+    transform: rotate(45deg) scale(0.8);
+}
+
+.menu-button[aria-expanded="true"] .menu-icon-close {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+/* ===================================
+   Hero
+=================================== */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 190px;
+}
+
+.hero-background {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.gradient {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+    pointer-events: none;
+}
+
+.gradient-left {
+    top: 205px;
+    left: -190px;
+    width: 560px;
+    height: 540px;
+    background: rgba(255, 200, 213, 0.25);
+}
+
+.gradient-right {
+    top: 215px;
+    right: -190px;
+    width: 590px;
+    height: 560px;
+    background: rgba(198, 228, 238, 0.3);
+}
+
+.gradient-bottom {
+    bottom: 0;
+    left: 5%;
+    width: 470px;
+    height: 320px;
+    background: rgba(255, 224, 197, 0.14);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-copy {
+    width: min(100%, 1320px);
+    margin-inline: auto;
+    text-align: center;
+}
+
+/* ===================================
+   Hero Heading
+=================================== */
+
+.hero-title {
+    color: var(--color-heading);
+    font-size: clamp(64px, 5.55vw, 82px);
+    font-weight: 600;
+    line-height: 1.025;
+    letter-spacing: -0.055em;
+}
+
+.hero-title-line {
+    display: block;
+}
+
+.hero-title-line-bottom {
+    margin-top: 8px;
+}
+
+.gradient-text {
+    font-weight: 600;
+    color: transparent;
+    background: linear-gradient(
+        90deg,
+        #ff7479 0%,
+        #ef79aa 28%,
+        #d078df 62%,
+        #ffb18c 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===================================
+   Hero Description
+=================================== */
+
+.hero-description {
+    margin-top: 27px;
+    color: var(--color-text);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.55;
+    letter-spacing: -0.025em;
+}
+
+/* ===================================
+   Hero Actions
+=================================== */
+
+.hero-actions {
+    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.button {
+    position: relative;
+    min-width: 158px;
+    min-height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 24px;
+    border-radius: 13px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    transition:
+        color 230ms ease,
+        background-color 230ms ease,
+        border-color 230ms ease,
+        transform 230ms var(--ease),
+        box-shadow 230ms ease;
+}
+
+.button-label {
+    position: relative;
+    z-index: 3;
+    transition: transform 280ms var(--ease);
+}
+
+.button-shine {
+    position: absolute;
+    z-index: 2;
+    top: -100%;
+    left: -50%;
+    width: 32%;
+    height: 300%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.34) 50%,
+        transparent 100%
+    );
+    transform: rotate(22deg);
+    transition: left 650ms var(--ease);
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.button:hover .button-shine {
+    left: 120%;
+}
+
+.button:hover .button-label {
+    transform: translateY(-1px);
+}
+
+.button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.button-outline {
+    border: 1px solid var(--color-border);
+    color: #303033;
+    background: rgba(255, 255, 255, 0.65);
+}
+
+.button-outline .button-shine {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(180, 204, 218, 0.22),
+        transparent
+    );
+}
+
+.button-outline:hover {
+    border-color: #abc1cd;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 8px 19px rgba(62, 80, 90, 0.07);
+}
+
+.button-primary {
+    border: 1px solid var(--color-dark);
+    color: var(--color-white);
+    background: var(--color-dark);
+}
+
+.button-primary:hover {
+    border-color: var(--color-dark-hover);
+    background: var(--color-dark-hover);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* ===================================
+   Trustpilot
+=================================== */
+
+.trustpilot {
+    margin-top: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.trustpilot-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #151517;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+.trustpilot-brand ion-icon {
+    flex-shrink: 0;
+    color: var(--color-rating);
+    font-size: 30px;
+}
+
+.trustpilot-stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 5px;
+}
+
+.trustpilot-stars ion-icon {
+    color: var(--color-rating);
+    font-size: 17px;
+}
+
+.trustpilot-copy {
+    color: #18181a;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+/* ===================================
+   Dashboard
+=================================== */
+
+.dashboard {
+    position: relative;
+    width: min(92%, 1270px);
+    margin: 51px auto 0;
+    padding: 8px 8px 0;
+    border-radius: 18px 18px 0 0;
+    background: rgba(255, 255, 255, 0.42);
+    box-shadow: 0 18px 44px rgba(31, 35, 40, 0.052);
+}
+
+.dashboard::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -7px;
+    right: -7px;
+    bottom: 0;
+    left: -7px;
+    border-radius: 24px 24px 0 0;
+    background: rgba(255, 255, 255, 0.17);
+}
+
+.dashboard img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+/* ===================================
+   Reveal Animation
+=================================== */
+
+[data-reveal] {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+[data-reveal="header"] {
+    transform: translateY(-14px);
+}
+
+[data-reveal="up"] {
+    transform: translateY(22px);
+}
+
+[data-reveal="dashboard"] {
+    transform: translateY(32px) scale(0.992);
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    transition:
+        opacity 760ms var(--ease),
+        transform 900ms var(--ease);
+}
+
+.section-anchor {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* ===================================
+   Large Desktop
+=================================== */
+
+@media (min-width: 1500px) {
+    .hero-title {
+        font-size: 82px;
+    }
+}
+
+/* ===================================
+   Laptop
+=================================== */
+
+@media (max-width: 1280px) {
+    :root {
+        --container-gap: 20px;
+    }
+
+    .site-header {
+        top: 20px;
+    }
+
+    .navbar {
+        min-height: 72px;
+        padding-inline: 22px;
+        border-radius: 16px;
+    }
+
+    .brand img {
+        width: 106px;
+    }
+
+    .nav-list {
+        gap: 39px;
+    }
+
+    .nav-link {
+        font-size: 15px;
+    }
+
+    .nav-button {
+        min-height: 46px;
+        padding-inline: 16px;
+        border-radius: 12px;
+        font-size: 15px;
+    }
+
+    .hero {
+        padding-top: 207px;
+    }
+
+    .hero-copy {
+        width: min(100%, 1120px);
+    }
+
+    .hero-title {
+        font-size: clamp(58px, 6vw, 72px);
+    }
+
+    .hero-title-line-bottom {
+        margin-top: 6px;
+    }
+
+    .hero-description {
+        margin-top: 24px;
+        font-size: 18px;
+    }
+
+    .hero-actions {
+        margin-top: 41px;
+    }
+
+    .button {
+        min-width: 148px;
+        min-height: 54px;
+        font-size: 15px;
+    }
+
+    .trustpilot {
+        margin-top: 28px;
+    }
+
+    .dashboard {
+        width: min(92%, 1100px);
+        margin-top: 45px;
+    }
+}
+
+/* ===================================
+   Tablet / Drawer
+=================================== */
+
+@media (max-width: 900px) {
+    :root {
+        --container-gap: 16px;
+    }
+
+    .site-header,
+    .site-header[data-reveal],
+    .site-header[data-reveal].is-visible {
+        transform: none !important;
+        will-change: auto !important;
+        filter: none !important;
+        perspective: none !important;
+        contain: none !important;
+    }
+
+    .site-header[data-reveal] {
+        opacity: 1;
+    }
+
+    .navbar {
+        transform: none !important;
+        will-change: auto !important;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    body.menu-open::before {
+        content: "";
+        position: fixed;
+        z-index: 900;
+        inset: 0;
+        margin: 0;
+        background: rgba(12, 13, 14, 0.3);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .site-header {
+        top: 14px;
+        z-index: 1000;
+    }
+
+    .site-header.drawer-active {
+        z-index: 1000;
+    }
+
+    .navbar {
+        min-height: 68px;
+        grid-template-columns: 1fr auto;
+        padding-inline: 15px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.97);
+    }
+
+    .brand img {
+        width: 100px;
+    }
+
+    .menu-button {
+        position: relative;
+        z-index: 1200;
+        display: inline-flex;
+        width: 41px;
+        height: 41px;
+        border-radius: 11px;
+    }
+
+    /* Drawer */
+
+    .nav-menu {
+        position: fixed !important;
+        z-index: 1100;
+        top: 0 !important;
+        right: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        inset: 0 auto 0 0 !important;
+        width: clamp(260px, 50vw, 360px);
+        height: 100vh;
+        height: 100dvh;
+        margin: 0 !important;
+        grid-column: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 26px 18px 22px;
+        border: 0;
+        border-right: 1px solid #ececea;
+        border-radius: 0;
+        background: #fafaf9;
+        box-shadow: 18px 0 45px rgba(18, 20, 22, 0.09);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        opacity: 1;
+        visibility: hidden;
+        transform: translate3d(-100%, 0, 0);
+        transition:
+            transform 420ms var(--ease),
+            visibility 420ms;
+    }
+
+    .nav-menu.is-open {
+        visibility: visible;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .nav-menu::before {
+        content: "Navigation";
+        display: block;
+        margin: 0;
+        padding: 4px 4px 18px;
+        border-bottom: 1px solid #e7e7e5;
+        color: #a0a0a2;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+    }
+
+    .nav-list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 3px;
+        margin-top: 13px;
+    }
+
+    .nav-list li {
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 100%;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        padding: 0 11px;
+        border-radius: 10px;
+        color: #57575a;
+        background: transparent;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        transition:
+            color 200ms ease,
+            background-color 200ms ease,
+            padding-left 250ms var(--ease);
+    }
+
+    .nav-link::after {
+        content: "";
+        position: static;
+        width: 5px;
+        height: 5px;
+        flex: 0 0 5px;
+        margin-left: auto;
+        border-radius: 50%;
+        background: #d7d7d5;
+        transition:
+            background-color 200ms ease,
+            transform 220ms var(--ease);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+        padding-left: 15px;
+        color: #111113;
+        background: #f0f0ee;
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after {
+        background: #3b3b3d;
+        transform: scale(1.2);
+    }
+
+    .nav-button {
+        width: 100%;
+        min-height: 48px;
+        margin-top: auto;
+        border-radius: 11px;
+        color: var(--color-white);
+        background: var(--color-dark);
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: none;
+    }
+
+    .nav-button:hover {
+        background: var(--color-dark-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 7px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .site-header.drawer-active .navbar {
+        border-color: transparent;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .site-header.drawer-active .brand {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .hero {
+        padding-top: 168px;
+    }
+
+    .hero-copy {
+        width: min(100%, 760px);
+    }
+
+    .hero-title {
+        font-size: clamp(47px, 8vw, 62px);
+        line-height: 1.055;
+    }
+
+    .hero-title-line-bottom {
+        margin-top: 4px;
+    }
+
+    .hero-description {
+        max-width: 560px;
+        margin: 20px auto 0;
+        font-size: 17px;
+    }
+
+    .hero-actions {
+        margin-top: 34px;
+    }
+
+    .dashboard {
+        width: min(91%, 850px);
+        margin-top: 38px;
+    }
+
+    .gradient-left {
+        left: -320px;
+    }
+
+    .gradient-right {
+        right: -320px;
+    }
+}
+
+/* ===================================
+   Mobile
+=================================== */
+
+@media (max-width: 600px) {
+    :root {
+        --container-gap: 11px;
+    }
+
+    .site-header {
+        top: 9px;
+    }
+
+    .navbar {
+        min-height: 62px;
+        padding-inline: 12px;
+        border-radius: 14px;
+    }
+
+    .brand img {
+        width: 91px;
+    }
+
+    .menu-button {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+    }
+
+    .menu-icon {
+        font-size: 22px;
+    }
+
+    /* Drawer */
+
+    .nav-menu {
+        position: fixed !important;
+        top: 0 !important;
+        right: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        inset: 0 auto 0 0 !important;
+        width: clamp(220px, 58vw, 290px);
+        height: 100vh;
+        height: 100dvh;
+        margin: 0 !important;
+        padding: 20px 12px 16px;
+        border-radius: 0;
+        background: #fafaf9;
+        box-shadow: 14px 0 34px rgba(18, 20, 22, 0.08);
+    }
+
+    .nav-menu::before {
+        padding: 3px 5px 14px;
+        font-size: 9px;
+    }
+
+    .nav-list {
+        margin-top: 10px;
+        gap: 2px;
+    }
+
+    .nav-link {
+        min-height: 43px;
+        padding-inline: 10px;
+        border-radius: 9px;
+        font-size: 14px;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+        padding-left: 14px;
+    }
+
+    .nav-button {
+        min-height: 44px;
+        border-radius: 10px;
+        font-size: 13px;
+    }
+
+    /* Compact Hero */
+
+    .hero {
+        min-height: auto;
+        padding-top: 122px;
+    }
+
+    .hero-copy {
+        width: calc(100% - 4px);
+    }
+
+    .hero-title {
+        font-size: clamp(32px, 9.5vw, 40px);
+        font-weight: 600;
+        line-height: 1.055;
+        letter-spacing: -0.05em;
+    }
+
+    .hero-title-line-bottom {
+        margin-top: 2px;
+    }
+
+    .hero-description {
+        max-width: 330px;
+        margin: 14px auto 0;
+        font-size: 14px;
+        line-height: 1.48;
+    }
+
+    /* Inline Buttons */
+
+    .hero-actions {
+        width: min(100%, 314px);
+        margin: 23px auto 0;
+        flex-direction: row;
+        gap: 9px;
+    }
+
+    .button {
+        flex: 1;
+        width: auto;
+        min-width: 0;
+        min-height: 47px;
+        padding-inline: 10px;
+        border-radius: 11px;
+        font-size: 13px;
+    }
+
+    .button:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Trustpilot */
+
+    .trustpilot {
+        margin-top: 19px;
+        flex-wrap: nowrap;
+        gap: 7px;
+    }
+
+    .trustpilot-brand {
+        gap: 4px;
+        font-size: 13px;
+    }
+
+    .trustpilot-brand ion-icon {
+        font-size: 21px;
+    }
+
+    .trustpilot-stars {
+        gap: 1px;
+        margin-left: 1px;
+    }
+
+    .trustpilot-stars ion-icon {
+        font-size: 12px;
+    }
+
+    .trustpilot-copy {
+        width: auto;
+        font-size: 11px;
+    }
+
+    /* Dashboard */
+
+    .dashboard {
+        width: 95%;
+        margin-top: 27px;
+        padding: 4px 4px 0;
+        border-radius: 11px 11px 0 0;
+        box-shadow: 0 12px 28px rgba(30, 34, 40, 0.045);
+    }
+
+    .dashboard::before {
+        display: none;
+    }
+
+    .dashboard img {
+        border-radius: 7px 7px 0 0;
+    }
+
+    /* Gradients */
+
+    .gradient {
+        filter: blur(72px);
+    }
+
+    .gradient-left {
+        top: 120px;
+        left: -360px;
+        opacity: 0.78;
+    }
+
+    .gradient-right {
+        top: 215px;
+        right: -360px;
+        opacity: 0.78;
+    }
+
+    .gradient-bottom {
+        display: none;
+    }
+}
+
+/* ===================================
+   Small Mobile
+=================================== */
+
+@media (max-width: 390px) {
+    .nav-menu {
+        top: 0 !important;
+        left: 0 !important;
+        width: clamp(210px, 62vw, 245px);
+        margin: 0 !important;
+        padding: 18px 10px 14px;
+    }
+
+    .nav-menu::before {
+        padding: 3px 4px 13px;
+    }
+
+    .nav-list {
+        margin-top: 8px;
+    }
+
+    .nav-link {
+        min-height: 41px;
+        padding-inline: 8px;
+        font-size: 13px;
+    }
+
+    .nav-button {
+        min-height: 42px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding-top: 116px;
+    }
+
+    .hero-title {
+        font-size: 31px;
+    }
+
+    .hero-title-line-bottom {
+        margin-top: 1px;
+    }
+
+    .hero-description {
+        max-width: 295px;
+        margin-top: 12px;
+        font-size: 13px;
+    }
+
+    .hero-actions {
+        width: min(100%, 286px);
+        margin-top: 20px;
+        gap: 8px;
+    }
+
+    .button {
+        min-height: 44px;
+        padding-inline: 8px;
+        font-size: 12px;
+    }
+
+    .trustpilot {
+        margin-top: 17px;
+        gap: 5px;
+    }
+
+    .trustpilot-brand {
+        font-size: 12px;
+    }
+
+    .trustpilot-brand ion-icon {
+        font-size: 19px;
+    }
+
+    .trustpilot-stars ion-icon {
+        font-size: 10px;
+    }
+
+    .trustpilot-copy {
+        font-size: 10px;
+    }
+
+    .dashboard {
+        width: 96%;
+        margin-top: 23px;
+    }
+}
+
+/* ===================================
+   Reduced Motion
+=================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+    }
+
+    .button-shine,
+    .nav-button::before {
+        display: none;
+    }
+}
