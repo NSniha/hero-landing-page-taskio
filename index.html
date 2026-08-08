@@ -1,212 +1,184 @@
 <!doctype html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Taskio — AI-Powered Productivity & Team Collaboration</title>
+    <title>Taskio — AI-Powered Productivity & Team Collaboration</title>
 
-        <meta name="description"
-            content="Taskio helps teams organize, prioritize, and streamline workflows with AI-powered task management and seamless collaboration.">
-        <meta name="keywords"
-            content="Taskio, task management, productivity, team collaboration, AI productivity, project management, workflow management">
-        <meta name="author" content="Taskio">
-        <meta name="application-name" content="Taskio">
-        <meta name="robots" content="index, follow">
-        <meta name="theme-color" content="#f5f5f3">
-        <meta name="format-detection" content="telephone=no">
+    <meta name="description"
+        content="Taskio helps teams organize, prioritize, and streamline workflows with AI-powered task management and seamless collaboration.">
+    <meta name="keywords"
+        content="Taskio, productivity, AI task management, team collaboration, project management, workflow management">
+    <meta name="author" content="Taskio">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f5f5f4">
+    <meta name="format-detection" content="telephone=no">
 
-        <meta property="og:type" content="website">
-        <meta property="og:locale" content="en_US">
-        <meta property="og:site_name" content="Taskio">
-        <meta property="og:title" content="Taskio — AI-Powered Productivity & Team Collaboration">
-        <meta property="og:description"
-            content="Organize work, prioritize tasks, and collaborate seamlessly with your team using Taskio.">
-        <meta property="og:image:alt" content="Taskio AI-powered productivity dashboard">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Taskio">
+    <meta property="og:title" content="Taskio — AI-Powered Productivity & Team Collaboration">
+    <meta property="og:description" content="Organize work, prioritize tasks, and collaborate seamlessly with Taskio.">
 
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Taskio — AI-Powered Productivity & Team Collaboration">
-        <meta name="twitter:description"
-            content="Organize work, prioritize tasks, and collaborate seamlessly with your team using Taskio.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Taskio — AI-Powered Productivity & Team Collaboration">
+    <meta name="twitter:description" content="Organize work, prioritize tasks, and collaborate seamlessly with Taskio.">
 
-        <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
-        <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
-        <script type="application/ld+json">
-            {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Taskio",
-            "url": "https://your-domain.com/",
-            "description": "AI-powered productivity and team collaboration platform.",
-            "publisher": {
-                    "@type": "Organization",
-                    "name": "Taskio",
-                    "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://your-domain.com/assets/taskio-logo.svg"
-                    }
-                }
-            }
-        </script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
 
-        <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
 
-        <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+    <script src="/js/script.js" defer></script>
+</head>
 
-        <script src="/js/script.js" defer></script>
-    </head>
+<body>
+    <div class="page">
 
-    <body>
-        <div class="page">
+        <header class="site-header" data-reveal="header">
+            <nav class="navbar container" aria-label="Primary navigation">
 
-            <header class="site-header" data-reveal="header">
-                <nav class="navbar container" aria-label="Primary navigation">
+                <a class="brand" href="#home" aria-label="Taskio home">
+                    <img src="/assets/taskio-logo.svg" alt="Taskio" width="118" height="38">
+                </a>
 
-                    <a class="brand" href="#home" aria-label="Taskio home">
-                        <img src="./assets/taskio-logo.svg" alt="Taskio" width="123" height="38">
+                <div class="nav-menu" id="primary-navigation">
+                    <ul class="nav-list">
+                        <li>
+                            <a class="nav-link" href="#home">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="#features">
+                                Features
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="#integration">
+                                Integration
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="#pricing">
+                                Pricing
+                            </a>
+                        </li>
+                    </ul>
+
+                    <a class="nav-button" href="#get-started">
+                        <span>Get started</span>
                     </a>
+                </div>
 
-                    <div class="nav-menu" id="primary-navigation">
-                        <ul class="nav-list">
-                            <li>
-                                <a class="nav-link" href="#home">
-                                    Home
-                                </a>
-                            </li>
+                <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false"
+                    aria-controls="primary-navigation">
+                    <ion-icon class="menu-icon menu-icon-open" name="menu-outline" aria-hidden="true"></ion-icon>
 
-                            <li>
-                                <a class="nav-link" href="#features">
-                                    Features
-                                </a>
-                            </li>
+                    <ion-icon class="menu-icon menu-icon-close" name="close-outline" aria-hidden="true"></ion-icon>
+                </button>
 
-                            <li>
-                                <a class="nav-link" href="#integration">
-                                    Integration
-                                </a>
-                            </li>
+            </nav>
+        </header>
 
-                            <li>
-                                <a class="nav-link" href="#pricing">
-                                    Pricing
-                                </a>
-                            </li>
-                        </ul>
+        <main>
+            <section class="hero" id="home" aria-labelledby="hero-title">
 
-                        <a class="nav-button" href="#get-started">
-                            Get started
-                        </a>
-                    </div>
+                <div class="hero-background" aria-hidden="true">
+                    <span class="gradient gradient-left"></span>
+                    <span class="gradient gradient-right"></span>
+                    <span class="gradient gradient-bottom"></span>
+                </div>
 
-                    <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false"
-                        aria-controls="primary-navigation">
-                        <ion-icon class="menu-icon menu-icon-open" name="menu-outline" aria-hidden="true"></ion-icon>
+                <div class="hero-content container">
 
-                        <ion-icon class="menu-icon menu-icon-close" name="close-outline" aria-hidden="true"></ion-icon>
-                    </button>
+                    <div class="hero-copy">
 
-                </nav>
-            </header>
+                        <h1 class="hero-title" id="hero-title" data-reveal="up">
+                            <span class="hero-title-line">
+                                Increase productivity,
+                            </span>
 
-            <main>
-
-                <section class="hero" id="home" aria-labelledby="hero-title">
-
-                    <div class="hero-background" aria-hidden="true">
-                        <span class="gradient gradient-left"></span>
-                        <span class="gradient gradient-right"></span>
-                        <span class="gradient gradient-bottom"></span>
-                    </div>
-
-                    <div class="hero-content container">
-
-                        <div class="hero-copy">
-
-                            <h1 class="hero-title" id="hero-title" data-reveal="up">
-                                <span>
-                                    Increase productivity,
+                            <span class="hero-title-line hero-title-line-bottom">
+                                Collaborate
+                                <span class="gradient-text">
+                                    with teams
                                 </span>
+                            </span>
+                        </h1>
 
-                                <span>
-                                    Collaborate
-                                    <span class="gradient-text">
-                                        with teams
-                                    </span>
-                                </span>
-                            </h1>
+                        <p class="hero-description" data-reveal="up" data-delay="100">
+                            Let AI organize, prioritize, and streamline your workflow
+                        </p>
 
-                            <p class="hero-description" data-reveal="up" data-delay="100">
-                                Let AI organize, prioritize, and streamline your workflow
-                            </p>
-
-                            <div class="hero-actions" data-reveal="up" data-delay="200">
-                                <a class="button button-outline" href="#book-demo">
+                        <div class="hero-actions" data-reveal="up" data-delay="200">
+                            <a class="button button-outline" href="#book-demo">
+                                <span class="button-shine"></span>
+                                <span class="button-label">
                                     Book a demo
-                                </a>
-
-                                <a class="button button-primary" href="#get-started">
-                                    Get started
-                                </a>
-                            </div>
-
-                            <div class="trustpilot" data-reveal="up" data-delay="300"
-                                aria-label="Trustpilot, 3800 plus five star ratings">
-                                <div class="trustpilot-brand">
-                                    <ion-icon name="star" aria-hidden="true"></ion-icon>
-
-                                    <span>
-                                        Trustpilot
-                                    </span>
-                                </div>
-
-                                <div class="trustpilot-stars" aria-hidden="true">
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                </div>
-
-                                <span class="trustpilot-copy">
-                                    3800+ 5 Stars
                                 </span>
-                            </div>
+                            </a>
 
+                            <a class="button button-primary" href="#get-started">
+                                <span class="button-shine"></span>
+                                <span class="button-label">
+                                    Get started
+                                </span>
+                            </a>
                         </div>
 
-                        <figure class="dashboard" data-reveal="dashboard" data-delay="400">
-                            <img src="./assets/dashboard.png"
-                                alt="Taskio dashboard displaying project tasks organized into workflow columns" width="1560"
-                                height="820" fetchpriority="high">
-                        </figure>
+                        <div class="trustpilot" data-reveal="up" data-delay="300"
+                            aria-label="Trustpilot, 3800 plus five star ratings">
+                            <div class="trustpilot-brand">
+                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+
+                                <span>Trustpilot</span>
+                            </div>
+
+                            <div class="trustpilot-stars" aria-hidden="true">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                            </div>
+
+                            <span class="trustpilot-copy">
+                                3800+ 5 Stars
+                            </span>
+                        </div>
 
                     </div>
 
-                </section>
+                    <figure class="dashboard" data-reveal="dashboard" data-delay="400">
+                        <img src="/assets/dashboard.svg" alt="Taskio dashboard displaying collaborative project tasks"
+                            width="1400" height="760" fetchpriority="high">
+                    </figure>
 
-                <div id="features" class="section-anchor" aria-hidden="true"></div>
+                </div>
+            </section>
 
-                <div id="integration" class="section-anchor" aria-hidden="true"></div>
+            <div id="features" class="section-anchor"></div>
+            <div id="integration" class="section-anchor"></div>
+            <div id="pricing" class="section-anchor"></div>
+            <div id="book-demo" class="section-anchor"></div>
+            <div id="get-started" class="section-anchor"></div>
+        </main>
 
-                <div id="pricing" class="section-anchor" aria-hidden="true"></div>
-
-                <div id="book-demo" class="section-anchor" aria-hidden="true"></div>
-
-                <div id="get-started" class="section-anchor" aria-hidden="true"></div>
-
-            </main>
-
-        </div>
-    </body>
+    </div>
+</body>
 
 </html>
